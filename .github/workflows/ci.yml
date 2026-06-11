@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    name: style · audit · real install
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Register this checkout as the tap
+        run: |
+          TAP_DIR="$(brew --repository)/Library/Taps/hasso5703/homebrew-tap"
+          mkdir -p "$(dirname "$TAP_DIR")"
+          cp -R "$GITHUB_WORKSPACE" "$TAP_DIR"
+
+      - name: Style
+        run: brew style hasso5703/tap
+
+      - name: Audit (online)
+        run: brew audit --cask --online hasso5703/tap/talkink
+
+      - name: Install for real
+        run: brew install --cask hasso5703/tap/talkink
+
+      - name: Verify signature & Gatekeeper assessment
+        run: |
+          codesign --verify --deep --strict /Applications/Talkink.app
+          spctl --assess --type execute /Applications/Talkink.app
+
+      - name: Uninstall
+        run: brew uninstall --cask talkink
