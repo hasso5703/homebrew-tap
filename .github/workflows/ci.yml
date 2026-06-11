@@ -22,6 +22,10 @@ jobs:
         run: brew style hasso5703/tap
 
       - name: Audit (online)
+        env:
+          # Unauthenticated GitHub API calls share a 60/h per-IP budget across
+          # all runners — the workflow token lifts the audit over that.
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: brew audit --cask --online hasso5703/tap/talkink
 
       - name: Install for real
