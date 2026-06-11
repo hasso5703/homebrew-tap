@@ -10,6 +10,9 @@ your words are pasted at your cursor, in any app.
 brew install --cask hasso5703/tap/talkink
 ```
 
+> Homebrew 6+ asks you to trust third-party taps first:
+> `brew trust hasso5703/tap`, then install.
+
 Requires an Apple Silicon Mac (M1 or later) and macOS 14+.
 
 ## Update
