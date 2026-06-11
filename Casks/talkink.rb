@@ -1,6 +1,6 @@
 cask "talkink" do
-  version "0.6.0"
-  sha256 "17bf6c7ad64daea905467aaafdce364dcf2f35e94ac36f6f66f4244740cc56ba"
+  version "0.6.1"
+  sha256 "9485d8e7119b9d8fdcff0b8404c77ba528fb1d9c01e81c8a3a1aca99211d0f81"
 
   url "https://github.com/hasso5703/talkink/releases/download/v#{version}/Talkink.dmg",
       verified: "github.com/hasso5703/talkink/"
