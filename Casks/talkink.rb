@@ -1,6 +1,6 @@
 cask "talkink" do
-  version "0.6.1"
-  sha256 "9485d8e7119b9d8fdcff0b8404c77ba528fb1d9c01e81c8a3a1aca99211d0f81"
+  version "0.7.0"
+  sha256 "e1d7e79077e66dd88e78f8d2d2142c8cd33107cf6dce2e02826da578140e56d3"
 
   url "https://github.com/hasso5703/talkink/releases/download/v#{version}/Talkink.dmg",
       verified: "github.com/hasso5703/talkink/"
@@ -20,7 +20,7 @@ cask "talkink" do
   app "Talkink.app"
 
   zap trash: [
-    "~/.cache/huggingface/mlx-audio",
+    "~/.cache/huggingface/hub/mlx-audio",
     "~/Library/Application Support/Soyle",
     "~/Library/Caches/io.github.hasso5703.soyle",
     "~/Library/HTTPStorages/io.github.hasso5703.soyle",
